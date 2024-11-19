@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://8letxrhdluvt"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_glo7s"]
+[ext_resource type="AudioStream" uid="uid://bomkvoysgwya1" path="res://audio/human-music.mp3" id="1_yp8nk"]
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("audio_stream_player", "rich_text_label")]
+script = ExtResource("1_glo7s")
+audio_stream_player = NodePath("AudioStreamPlayer")
+rich_text_label = NodePath("CanvasLayer/ScrollContainer/RichTextLabel")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_yp8nk")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
